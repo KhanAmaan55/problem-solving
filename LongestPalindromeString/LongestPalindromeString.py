@@ -1,20 +1,13 @@
 # MY SOLUTION
 """
-def checkPalindrome(S):
-    if S[0] == S[len(S)-1]:
-        if(len(S) > 2):
-            return checkPalindrome(S[1:(len(S)-1)])
-        else:
-            return True
-    else:
-        return False
-
 def longest_palindromic_substring(s):
+    if len(s) <= 1:
+        return s
     longest = ''
     for i in range(len(s)):
-        for j in range(i+1, len(s)):
-            subString = s[i:(j+1)]
-            if len(subString) > len(longest) and s[i] == s[j] and checkPalindrome(subString):
+        for j in range(i, len(s)):
+            subString = s[i:j+1]
+            if len(subString) > len(longest) and subString == subString[::-1]:
                 longest = subString
     return longest
 """
